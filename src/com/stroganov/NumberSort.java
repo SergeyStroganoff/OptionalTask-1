@@ -11,15 +11,12 @@ public class NumberSort {
 
     public     NumberSort (ArrayList<Integer> numbers){
 
+    this.numbers = numbers; // как коректно проверить входящий масив на заполненость ?
+    Collections.sort(numbers);
 
-
-        this.numbers = numbers; // как коректно проверить входящий масив на заполненость ?
-
-    }
+}
 
     public void minmaxprint(){
-
-        Collections.sort(numbers);
 
         Integer min = numbers.get(0);
         Integer max = numbers.get(numbers.size()-1);
@@ -29,6 +26,16 @@ public class NumberSort {
 
         System.out.println("Минимальное число: "+ min + " его длинна: " + minLengs);
         System.out.println("Максимальное число: " + max + " его длинна: " +  maxLengs);
+
+    }
+
+    public void sortByLengs(){
+
+        for (int currentNumber:numbers
+             ) {
+            System.out.println(currentNumber);
+        }
+
 
     }
 

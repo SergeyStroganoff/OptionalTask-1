@@ -45,14 +45,22 @@ public class Main {
         }
 
 
-       // NumberSort<Integer> numberSort = new NumberSort(array);
-        NumberSort numberSort = new NumberSort(array);
+        if (!array.isEmpty()) {
 
-        // 1
-        numberSort.minmaxprint();
+            NumberSort numberSort = new NumberSort(array);
+
+            // 1
+            System.out.println("Найти самое короткое и самое длинное число. Вывести найденные числа и их длину.");
+            numberSort.minmaxprint();
+
+            // 2
+
+            System.out.println("Вывести числа в порядке возрастания (убывания) значений их длины.");
+            numberSort.sortByLengs();
+
+        }
 
 
-        //Arrays.sort(array);
 
 
     }
