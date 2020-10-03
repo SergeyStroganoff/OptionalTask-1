@@ -60,6 +60,11 @@ public class Main {
             System.out.println("Вывести числа в порядке возрастания (убывания) значений их длины.");
             numberSort.sortByLengs();
 
+            // 3
+
+            System.out.println("Вывести на консоль те числа, длина которых меньше (больше) средней длины по всем числам, а также длину.");
+            numberSort.printLessMediumLength();
+
         }
 
 

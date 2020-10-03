@@ -44,7 +44,7 @@ public class NumberSort {
 
     }
 
-    public void sort(){                               // метод сортировки
+    private void sort(){                               // метод сортировки
 
         for (int j=0;j<numbers.size()-1;j++) {
             for (int i = 0; i < numbers.size() - 1; i++) {
@@ -63,7 +63,7 @@ public class NumberSort {
         }
 
 
-        public int numberLength (int anyNumber){ // метод определения длинны числа в символах
+        private int numberLength (int anyNumber){ // метод определения длинны числа в символах
             int result = 0;
 
             if (anyNumber < 0 ){anyNumber = -anyNumber;}
@@ -79,6 +79,50 @@ public class NumberSort {
         return result;
 
         }
+
+
+        private ArrayList<Integer> lessMediumLength(){
+
+        ArrayList<Integer> smallaray = new ArrayList<>();
+
+        int allLengs = 0;
+        int mediumLength;
+
+            for (int indexInt:numbers) {
+
+                allLengs +=numberLength(indexInt);
+            }
+
+            mediumLength = allLengs/numbers.size();
+           // System.out.println(mediumLength);
+
+            for (int indexInt:numbers) {
+
+               if (numberLength(indexInt)<mediumLength) {
+
+                  smallaray.add(indexInt);
+               }
+
+
+
+            }
+            return smallaray;
+        }
+
+
+        public void printLessMediumLength(){
+
+        ArrayList<Integer> array = lessMediumLength();
+
+            for (int index:array) {
+
+                System.out.println("Число:" + index+ " меньше средней длинны введенных чисел" + " его длинна:" + numberLength(index));
+
+            }
+
+        }
+
+
 
 
     }
