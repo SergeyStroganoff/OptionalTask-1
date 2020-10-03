@@ -27,6 +27,8 @@ public class Main {
 
         ArrayList<Integer> array = new ArrayList<>();
 
+
+
         System.out.println("Введите 10 чисел");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
