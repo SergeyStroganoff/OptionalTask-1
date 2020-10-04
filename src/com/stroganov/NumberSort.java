@@ -12,8 +12,16 @@ public class NumberSort {
     public     NumberSort (ArrayList<Integer> numbers){
 
     this.numbers = numbers; //    как коректно проверить входящий масив на заполненость ?
-    // Collections.sort(numbers); альтернативное решение
-        sort();
+
+
+        long start, end;
+        start = System.nanoTime(); // замеряем время сортировки
+
+       // Collections.sort(numbers); //альтернативное решение - вопрос почему в три раза дольше ?
+        sort2();
+
+        end = System.nanoTime(); // замеряем время сортировки
+        System.out.println(end-start); // выводим время
 
 }
 
@@ -44,23 +52,29 @@ public class NumberSort {
 
     }
 
-    private void sort(){                               // метод сортировки
 
-        for (int j=0;j<numbers.size()-1;j++) {
-            for (int i = 0; i < numbers.size() - 1; i++) {
+    private void swapArray(ArrayList<Integer> arrayForSwap, int ind1, int ind2) {  // замена двух значений
+        int tmp = arrayForSwap.get(ind1);
+        arrayForSwap.set(ind1,arrayForSwap.get(ind2)) ;
+        arrayForSwap.set(ind2,tmp);
 
-                int numberOne = numbers.get(i);
-                int numberTwo = numbers.get(i + 1);
+    }
 
-                if (numberOne > numberTwo) {
-                    numbers.set(i, numberTwo);
-                    numbers.set(i + 1, numberOne);
-                }
 
+
+    private void sort2() {                                 // альтернативная сортировка пузырьком быстреее !!!
+
+        for (int bigLength = numbers.size() - 1; bigLength >= 0; bigLength--) {
+            for (int i = 0; i < bigLength; i++) {
+                if (numbers.get(i)  > numbers.get(i+1))
+                    swapArray(numbers, i, i + 1);
             }
-        }
+
 
         }
+    }
+
+
 
 
         private int numberLength (int anyNumber){ // метод определения длинны числа в символах
@@ -123,6 +137,32 @@ public class NumberSort {
         }
 
 
+   // Найти число, в котором количество различных цифр минимально. Если таких чисел несколько, найти первое из них.
+
+
+    private int findMinDifferrentNumbers(){
+
+
+
+        for (int index:numbers) {
+
+            if (index < 10) {return index;}
+
+            for (int i=0; i<numberLength(index);i++){
+
+                ArrayList<Integer> tempList = new ArrayList<>();
+                tempList.add(index%10*(numberLength(index)-i));
+
+
+            }
+
+
+
+        }
+
+return 0; // пока так !
+
+    }
 
 
     }

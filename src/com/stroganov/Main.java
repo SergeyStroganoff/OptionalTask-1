@@ -16,6 +16,7 @@ package com.stroganov;
 
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
@@ -41,9 +42,11 @@ public class Main {
                 array.add(Integer.parseInt(reader.readLine()));
             }
 
-        } catch (Exception e){
+        } catch (NumberFormatException f ) {
+            System.err.println("Неправильный формат: " + f + "\n");
+        } catch (IOException e){
 
-            System.out.println("Error reading from console");
+            System.out.println("Ошибка чтения с консоли: " + e + "\n");
         }
 
 
