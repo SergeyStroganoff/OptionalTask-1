@@ -68,6 +68,12 @@ public class Main {
             System.out.println("Вывести на консоль те числа, длина которых меньше (больше) средней длины по всем числам, а также длину.");
             numberSort.printLessMediumLength();
 
+            // 4
+
+            System.out.println("Найти число, в котором количество различных цифр минимально. Если таких чисел несколько, найти первое из них.");
+           int s = numberSort.findMinDifferrentNumbers();
+
+
         }
 
 

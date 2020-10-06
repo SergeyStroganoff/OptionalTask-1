@@ -1,12 +1,12 @@
 package com.stroganov;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
+import java.lang.Comparable.*;
+import java.util.Comparator.*;
 
 public class NumberSort {
 
     private ArrayList<Integer> numbers;
-
 
 
     public     NumberSort (ArrayList<Integer> numbers){
@@ -139,33 +139,63 @@ public class NumberSort {
 
    // Найти число, в котором количество различных цифр минимально. Если таких чисел несколько, найти первое из них.
 
+    /*
+    - перебираем список
+    -
+     */
 
-    private int findMinDifferrentNumbers(){
+
+    public int findMinDifferrentNumbers(){
 
 
+        HashMap <Integer,Integer> hashMap = new HashMap<>(); // временный список
+
+        Set<String> set = new HashSet<>();
 
         for (int index:numbers) {
 
-            if (index < 10) {return index;}
+            if (index < 10 && index > -10) {return index;} // если однозначное число, возвращаем именно его
 
-            for (int i=0; i<numberLength(index);i++){
+            String s = String.valueOf(index);
+            String[] arr = s.split("");
+            int m = 0;
 
-                ArrayList<Integer> tempList = new ArrayList<>();
-                tempList.add(index%10*(numberLength(index)-i));
+            int count;
 
+            for(int i=0; i<s.length(); i++) {
+               if (!arr[i].equals("-")) {set.add(arr[i]);}
+                }
+
+            count = set.size();
+            set.clear();
+            System.out.println("В числе:"+ index +" уникальных цифр" + count);
+
+            hashMap.put(index,count);
 
             }
 
 
+        List list = new ArrayList(hashMap.entrySet());
+        Collections.sort(list, new Comparator() {
 
+            @Override
+            public int compare(Map.Entry e1, Map.Entry e2) {
+
+                return e1.getValue().compareTo(e2.getValue());
+            }
+
+
+
+        });
+
+
+        return 0; // пока так !
         }
 
-return 0; // пока так !
-
-    }
 
 
     }
+
 
 
 
