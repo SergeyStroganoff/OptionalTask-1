@@ -71,7 +71,8 @@ public class Main {
             // 4
 
             System.out.println("Найти число, в котором количество различных цифр минимально. Если таких чисел несколько, найти первое из них.");
-           int s = numberSort.findMinDifferrentNumbers();
+            int s = numberSort.findMinDifferrentNumbers();
+            System.out.println("Первое число, в котором количество различных цифр минимально: " + s);
 
 
         }
