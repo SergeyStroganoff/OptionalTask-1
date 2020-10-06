@@ -70,12 +70,8 @@ public class NumberSort {
                     swapArray(numbers, i, i + 1);
             }
 
-
         }
     }
-
-
-
 
         private int numberLength (int anyNumber){ // метод определения длинны числа в символах
             int result = 0;
@@ -116,9 +112,6 @@ public class NumberSort {
 
                   smallaray.add(indexInt);
                }
-
-
-
             }
             return smallaray;
         }
@@ -141,14 +134,17 @@ public class NumberSort {
 
     /*
     - перебираем список
-    -
+    - переводим число в строку и делим по символам в отдельные строки
+    - вносим символы в set
+    - размер каждого set вносим в переменную, а затем в спискок - подразумевая что списки будут синхронизированы
+    - ищем индекс самого короткого числа из temp
      */
 
 
     public int findMinDifferrentNumbers(){
 
 
-        HashMap <Integer,Integer> hashMap = new HashMap<>(); // временный список
+        ArrayList <Integer> tempLIst = new ArrayList<>(); // временный список
 
         Set<String> set = new HashSet<>();
 
@@ -158,7 +154,6 @@ public class NumberSort {
 
             String s = String.valueOf(index);
             String[] arr = s.split("");
-            int m = 0;
 
             int count;
 
@@ -168,31 +163,20 @@ public class NumberSort {
 
             count = set.size();
             set.clear();
-            System.out.println("В числе:"+ index +" уникальных цифр" + count);
+           // System.out.println("В числе:"+ index +" уникальных цифр: " + count);
 
-            hashMap.put(index,count);
+            tempLIst.add(count);
 
             }
+        ArrayList<Integer> newTemp =  (ArrayList<Integer>)tempLIst.clone();
+        Collections.sort(newTemp);
 
+        int index = tempLIst.indexOf(newTemp.get(0));
 
-        List list = new ArrayList(hashMap.entrySet());
-        Collections.sort(list, new Comparator() {
+        //System.out.println("Индекс наименьшего значения во временном листе: " + index);
 
-            @Override
-            public int compare(Map.Entry e1, Map.Entry e2) {
-
-                return e1.getValue().compareTo(e2.getValue());
-            }
-
-
-
-        });
-
-
-        return 0; // пока так !
+        return numbers.get(index); // пока как то так !
         }
-
-
 
     }
 
