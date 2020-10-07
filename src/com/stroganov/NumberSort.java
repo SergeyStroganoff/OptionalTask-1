@@ -1,8 +1,7 @@
 package com.stroganov;
 
 import java.util.*;
-import java.lang.Comparable.*;
-import java.util.Comparator.*;
+
 
 public class NumberSort {
 
@@ -30,20 +29,20 @@ public class NumberSort {
         Integer min = numbers.get(0);
         Integer max = numbers.get(numbers.size()-1);
 
-      //  int minLengs = min.toString().length(); //альтернативное решение расчета длинны числа
-      //  int maxLengs = max.toString().length();
+      //  int minLength = min.toString().length(); //альтернативное решение расчета длинны числа
+      //  int maxLength = max.toString().length();
 
-          int minLengs = numberLength(min); //альтернативное решение
-          int maxLengs = numberLength(max);
+          int minLength = numberLength(min); //альтернативное решение
+          int maxLength = numberLength(max);
 
 
 
-        System.out.println("Минимальное число: "+ min + " его длинна: " + minLengs);
-        System.out.println("Максимальное число: " + max + " его длинна: " +  maxLengs);
+        System.out.println("Минимальное число: "+ min + " его длинна: " + minLength);
+        System.out.println("Максимальное число: " + max + " его длинна: " +  maxLength);
 
     }
 
-    public void sortByLengs(){
+    public void sortByLength(){
 
         for (int currentNumber:numbers
              ) {
@@ -95,15 +94,15 @@ public class NumberSort {
 
         ArrayList<Integer> smallaray = new ArrayList<>();
 
-        int allLengs = 0;
+        int allLength = 0;
         int mediumLength;
 
             for (int indexInt:numbers) {
 
-                allLengs +=numberLength(indexInt);
+                allLength +=numberLength(indexInt);
             }
 
-            mediumLength = allLengs/numbers.size();
+            mediumLength = allLength/numbers.size();
            // System.out.println(mediumLength);
 
             for (int indexInt:numbers) {
@@ -141,7 +140,7 @@ public class NumberSort {
      */
 
 
-    public int findMinDifferrentNumbers(){
+    public int findMinDifferentNumbers(){
 
 
         ArrayList <Integer> tempLIst = new ArrayList<>(); // временный список

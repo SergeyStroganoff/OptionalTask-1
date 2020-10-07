@@ -61,7 +61,7 @@ public class Main {
             // 2
 
             System.out.println("Вывести числа в порядке возрастания (убывания) значений их длины.");
-            numberSort.sortByLengs();
+            numberSort.sortByLength();
 
             // 3
 
@@ -71,7 +71,7 @@ public class Main {
             // 4
 
             System.out.println("Найти число, в котором количество различных цифр минимально. Если таких чисел несколько, найти первое из них.");
-            int s = numberSort.findMinDifferrentNumbers();
+            int s = numberSort.findMinDifferentNumbers();
             System.out.println("Первое число, в котором количество различных цифр минимально: " + s);
 
         }
